@@ -1,0 +1,103 @@
+# ==========================================================
+# MINI-SNORT EXTENDED RULE SET
+# Author: You
+# Description: Extended signature-based IDS rules
+# ==========================================================
+
+# ---------------- NETWORK RECONNAISSANCE ------------------
+
+TCP_SYN_SCAN
+# Detects TCP SYN packets (possible port scanning)
+
+TCP_FIN_SCAN
+# Detects FIN-only packets used in stealth scans
+
+TCP_NULL_SCAN
+# Detects packets with no TCP flags set
+
+TCP_XMAS_SCAN
+# Detects FIN, PSH, URG flag combination (XMAS scan)
+
+UDP_SCAN
+# Detects UDP packets to uncommon ports
+
+
+# ----------------- DOS / FLOOD ATTACKS --------------------
+
+ICMP_ECHO_REQUEST
+# Detects ICMP ping traffic (possible ICMP flood)
+
+TCP_SYN_FLOOD
+# Detects excessive SYN packets (DoS attack pattern)
+
+UDP_FLOOD
+# Detects high-volume UDP traffic
+
+
+# ----------------- WEB-BASED ATTACKS ----------------------
+
+HTTP_PORT_ACCESS
+# Detects traffic targeting HTTP port 80
+
+HTTPS_PORT_ACCESS
+# Detects traffic targeting HTTPS port 443
+
+SUSPICIOUS_HTTP_METHOD
+# Detects abnormal HTTP methods (PUT, DELETE)
+
+SQL_INJECTION_KEYWORDS
+# Detects SQL keywords like SELECT, UNION, DROP
+
+XSS_KEYWORDS
+# Detects script tags or JavaScript keywords
+
+
+# ----------------- CREDENTIAL ATTACKS ---------------------
+
+PLAINTEXT_PASSWORD
+# Detects keyword "password" in payload
+
+PLAINTEXT_USERNAME
+# Detects keyword "username" in payload
+
+CREDENTIAL_LEAK
+# Detects login-related keywords in clear text
+
+
+# ----------------- INSECURE SERVICES ----------------------
+
+TELNET_ACCESS
+# Detects access to Telnet port 23
+
+FTP_ACCESS
+# Detects access to FTP port 21
+
+SMB_ACCESS
+# Detects access to SMB port 445
+
+
+# ----------------- MALWARE INDICATORS ---------------------
+
+SUSPICIOUS_PAYLOAD_EXEC
+# Detects keywords like cmd.exe, powershell
+
+BASE64_PAYLOAD
+# Detects Base64-like encoded payloads
+
+REVERSE_SHELL_KEYWORDS
+# Detects nc, bash -i, /dev/tcp patterns
+
+
+# ----------------- POLICY VIOLATIONS ----------------------
+
+PRIVATE_IP_EXFILTRATION
+# Detects outbound traffic from private IP ranges
+
+UNKNOWN_PROTOCOL
+# Detects packets with unknown or malformed protocol
+
+LARGE_PACKET_SIZE
+# Detects abnormally large packet sizes
+
+
+# ----------------- END OF RULE SET ------------------------
