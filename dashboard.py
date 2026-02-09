@@ -8,8 +8,9 @@ st.set_page_config(page_title="Mini-Snort IDS", layout="wide")
 st.title("🛡️ Mini-Snort IDS Dashboard")
 st.markdown("### Real-time Intrusion Alerts")
 
-# Auto refresh every 3 seconds (Streamlit-safe)
-st.autorefresh(interval=3000, key="refresh")
+# Refresh button (safe)
+if st.button("🔄 Refresh Alerts"):
+    pass
 
 def read_logs():
     if not os.path.exists(LOG_FILE):
@@ -23,5 +24,5 @@ st.text_area(
     label="Alerts",
     value=logs,
     height=400,
-    key="alerts_box"   # 👈 UNIQUE KEY (important)
+    key="alerts_box"
 )
